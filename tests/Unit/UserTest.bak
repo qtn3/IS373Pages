@@ -1,0 +1,32 @@
+<?php
+
+namespace Tests\Unit;
+
+use Tests\TestCase;
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+
+class UserTest extends TestCase
+{
+    //use RefreshDatabase;
+    /**
+     * A basic unit test example.
+     *
+     * @return void
+     */
+    public function test_example()
+    {
+        $value1 = 2;
+        $value2 = 3;
+        $value3 = $value1 + $value2;
+
+        $this->assertEquals(5,$value3);
+    }
+    public function test_user()
+    {
+        $user = User::find(1);
+        dd($user);
+        $this->assertEquals(5,5);
+    }
+}
