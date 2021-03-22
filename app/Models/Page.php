@@ -9,7 +9,7 @@ class Page extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title', 'body', 'published'
+        'title', 'body', 'publish'
     ];
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

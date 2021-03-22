@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Page;
 use Livewire\Component;
 use App\Models\Post;
 use App\Models\User;
@@ -87,6 +88,12 @@ class Posts extends Component
             'body' => $this->body,
             'author' => $this->author,
             'published' => $this->published
+        ]);
+
+        Page::updateOrCreate(['id' => $this->post_id], [
+            'title' => $this->title,
+            'body' => $this->body,
+            'publish' => $this->published
         ]);
 
         session()->flash('message',
