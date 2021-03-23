@@ -9,7 +9,7 @@ use App\Models\User;
 
 class Posts extends Component
 {
-    public $posts, $title, $body, $post_id, $author, $published;
+    public $posts, $title, $body, $post_id, $author, $published, $hyperlink;
     public $isOpen = 0;
 
     /**
@@ -67,6 +67,7 @@ class Posts extends Component
         $this->post_id = '';
         $this->author = '';
         $this->published = '';
+        $this->hyperlink = '';
     }
 
     /**
@@ -80,14 +81,16 @@ class Posts extends Component
             'title' => 'required',
             'body' => 'required',
             'author' => 'required',
-            'published' => 'required'
+            'published' => 'required',
+            'hyperlink' => 'required'
         ]);
 
         Post::updateOrCreate(['id' => $this->post_id], [
             'title' => $this->title,
             'body' => $this->body,
             'author' => $this->author,
-            'published' => $this->published
+            'published' => $this->published,
+            'hyperlink' => $this->hyperlink
         ]);
 
         Page::updateOrCreate(['id' => $this->post_id], [
@@ -115,6 +118,7 @@ class Posts extends Component
         $this->body = $post->body;
         $this->author = $post->author;
         $this->published = $post->published;
+        $this->hyperlink = $post->hyperlink;
         $this->openModal();
     }
 

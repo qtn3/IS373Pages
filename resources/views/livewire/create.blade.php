@@ -30,6 +30,12 @@
                         </div>
 
                         <div class="mb-4">
+                            <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">Hyperlink:</label>
+                            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2" wire:model="hyperlink" placeholder="Enter link here"></textarea>
+                            @error('hyperlink') <span class="text-red-500">{{ $message }}</span>@enderror
+                        </div>
+
+                        <div class="mb-4">
                             <label for="check" class="form-check-label">Publish:</label>
                             <input class="form-check-input" id="publish" value="publish" type="checkbox" name="published" wire:model="published">Publish</input>
                             <input class="form-check-input" id="no-publish" value="no-publish" type="checkbox" name="published" wire:model="published">No Publish</input>
@@ -52,7 +58,6 @@
         </span>
             </form>
         </div>
-
     </div>
 </div>
 </div>

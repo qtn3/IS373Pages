@@ -32,17 +32,19 @@
                 </thead>
                 <tbody>
                 @foreach($posts as $post)
+                    @if( $post->published =='publish')
                     <tr>
                         <td class="border px-4 py-2">{{ $post->id }}</td>
-                        <td class="border px-4 py-2">{{ $post->title }}</td>
+                        <td class="border px-4 py-2"><a href="{{$post->hyperlink}}">{{ $post->title }}</a></td>
                         <td class="border px-4 py-2">{{ $post->body }}</td>
                         <td class="border px-4 py-2">{{ $post->author }}</td>
-                        <td class="border px-4 py-2">{{ $post->publish }}</td>
+                        <td class="border px-4 py-2">{{$post->published}} </td>
                         <td class="border px-4 py-2">
                             <button wire:click="edit({{ $post->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
                             <button wire:click="delete({{ $post->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                         </td>
                     </tr>
+                    @endif
                 @endforeach
                 </tbody>
             </table>

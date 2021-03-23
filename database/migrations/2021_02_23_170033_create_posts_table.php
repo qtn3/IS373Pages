@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('body');
             $table->string('author');
             $table->boolean('published')->default(0);
+            $table->string('hyperlink');
             //create the relationship between a task and the user that created it
             $table->integer('user_id')->unsigned()->index();
             $table->timestamps();

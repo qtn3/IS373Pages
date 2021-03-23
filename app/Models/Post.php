@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title', 'body', 'author', 'published'
+        'title', 'body', 'author', 'published', 'hyperlink'
     ];
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
